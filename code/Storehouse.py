@@ -5,7 +5,6 @@ import json
 
 MONEY = 100
 
-
 # receiving
 class server(threading.Thread):
     def __init__(self):
@@ -15,7 +14,7 @@ class server(threading.Thread):
         global MONEY
         print('start listening\r\n')
         while True:
-            msg, addr = s.recvfrom(2048)  # 接收
+            msg,addr = s.recvfrom(2048)
             try:
                 msg = json.loads(msg)
                 if msg["head"] == "givememoney":
@@ -25,7 +24,7 @@ class server(threading.Thread):
                     else:
                         data = {"head": "decline", "content": "nomoney"}
 
-                    s.sendto(json.dumps(data), addr)
+                    s.sendto(json.dumps(data).encode(), addr)
                 print('\nreceive from' + str(addr) + ':\n\t' + msg.decode() + '\n:')
             except Exception as e:
                 s.sendto(str(e).encode(), addr)
@@ -39,9 +38,6 @@ class server(threading.Thread):
 
 
 if __name__ == '__main__':
-
-
-
     if len(sys.argv) ==3:
         try:
             serv_ip = sys.argv[1]
@@ -65,7 +61,7 @@ if __name__ == '__main__':
 
     s.bind((host, port))
     data = {"head": "storehouse", "password": "storehouse"}
-    s.sendto(json.dumps(data), server_ip_port)
+    s.sendto(json.dumps(data).encode(), server_ip_port)
 
     thread = server()
     thread.start()

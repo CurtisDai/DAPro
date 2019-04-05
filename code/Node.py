@@ -1,10 +1,6 @@
 import socket
 import threading
-import sys
-
-
-
-
+import json
 
 host = socket.gethostname()
 myaddr = socket.gethostbyname(host)
@@ -41,22 +37,38 @@ class client(threading.Thread):
     def run(self):
         while True:
             print("what you wanna do now?(reply the number)")
-            print("1. send message")
-            print("2. get all node addresses")
-            print("3. edit the file")
+            print("1. login")
+            print("2. send to other node")
+            print("3. go to storehouse")
 
             try:
                 num = int(input())
                 if num == 1:
-                    cliip = input('aim address:')
-                    cliport = int(input('aim port:'))
-                    cliaddr = (cliip, cliport)
-                    data = input(':')
-                    s.sendto(data.encode(), cliaddr)  # send
+                    serverip = input('aim address:')
+                    serverport = int(input('aim port:'))
+                    serveraddr = (serverip, serverport)
+                    msg = {"head": "login", "password": "edon"}
+                    data = json.dumps(msg)
+                    s.sendto(data.encode(), serveraddr)  # send
+                elif num == 2:
+                    nodeip = input('aim address:')
+                    nodeport = int(input('aim port:'))
+                    nodeaddr = (nodeip, nodeport)
+                    msg = {"head": "node", "password": "node"}
+                    data = json.dumps(msg)
+                    s.sendto(data.encode(), nodeaddr )  # send
+                elif num == 3:
+                    ship = input('aim address:')
+                    shport = int(input('aim port:'))
+                    shaddr = (ship, shport)
+                    msg = {"head": "givemoney"}
+                    data = json.dumps(msg)
+                    s.sendto(data.encode(), shaddr)  # send
+
                 else:
                     print("not offer this service now")
             except Exception as e:
-                print("invalid try")
+                print(e)
                 pass
 
 
@@ -65,4 +77,5 @@ thread1 = server()
 thread2 = client()
 thread1.start()
 thread2.start()
+
 
