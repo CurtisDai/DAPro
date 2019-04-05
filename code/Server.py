@@ -4,7 +4,7 @@ import socket
 host = socket.gethostname()
 myaddr = socket.gethostbyname(host)
 print('logger ip address:', myaddr)
-port = int(input('本地端口:'))
+port = int(input('local port:'))
 
 BUFSIZE = 1024
 client = []
@@ -18,7 +18,7 @@ while True:
         newNode = False
         data, client_addr = server.recvfrom(BUFSIZE)
         msg = json.loads(data)
-        print('server收到的数据', msg)
+        print('server received ', msg)
 
         if msg["head"] == 'login' and msg["password"] == "edon":
             if client_addr not in client:

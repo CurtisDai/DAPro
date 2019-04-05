@@ -21,7 +21,7 @@ class server(threading.Thread):
     def run(self):
         print('start listening\r\n')
         while True:
-            msg, addr = s.recvfrom(2048)  # 接收
+            msg, addr = s.recvfrom(2048)  # receive
             try:
              print('\nreceive from' + str(addr) + ':\n\t' + msg.decode() + '\n:')
             except Exception as e:
