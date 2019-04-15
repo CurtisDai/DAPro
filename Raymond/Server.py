@@ -1,17 +1,12 @@
 import json
 import socket
-import random
+
 host = socket.gethostname()
 myaddr = socket.gethostbyname(host)
-port = int(input('Set your local port:'))
+print('logger ip address:', myaddr)
+port = int(input('local port:'))
 
-print("*" * 80)
-print("Monitior Information:")
-print('IP address:', myaddr)
-print("port: ", port)
-print("*" * 80)
-
-BUFSIZE = 2048
+BUFSIZE = 1024
 client = []
 storehouse = None
 ip_port = (myaddr, port)
@@ -26,19 +21,12 @@ while True:
         msg = json.loads(data)
         print('server received ', msg)
 
-        if msg["head"] == 'login':
-            if msg["algorithm"] == "raymond":
-                if client:
-                    i = random.randint(0,len(client)-1)
-                    parent = client[i]
-                else:
-                    parent = client_addr
-                data = {"head":'initialize', "content": {"parent":parent,"cs_addr":storehouse}}
-                data = json.dumps(reply)
-
+        if msg["head"] == 'login' and msg["password"] == "edon":
+            if client_addr not in client:
+                newNode = True
                 client.append(client_addr)
 
-
+            reply = {"head": "Success", "content": client}
             data = json.dumps(reply)
             server.sendto(data.encode(), client_addr)
 

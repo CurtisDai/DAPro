@@ -1,4 +1,4 @@
-from NodeList import NodeList
+from Suzuki_Kasami_Alg.NodeList import NodeList
 from TokenInfo import TokenInfo
 from NodeListener import NodeListener
 from NodeInfo import NodeInfo

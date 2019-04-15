@@ -1,0 +1,97 @@
+import time
+
+
+class Node(object):
+    def __init__(self, ip, port,parent_addr=None,cs_addr = None, cs=False, token=False):
+        self.addr = (ip,port)
+        self.parent = parent_addr
+        self.cs_addr = cs_addr
+        self.cs = cs
+        self.token = token
+        self.queue = []
+
+
+
+    def recieve_message(self,data,addr):
+        if data["head"] == 'request_token':
+            return self.recieve_request(addr)
+        elif data["head"] == 'send_token':
+            return self.receive_token(addr)
+        elif data["head"] == 'initialize':
+            return self.initialize(data["content"])
+
+    def initialize(self,data):
+        self.parent = data["parent"]
+        self.cs_addr = data["cs_addr"]
+        return "Success initialized"
+
+    # listen to the request node, will be a thread on port 60000
+    def recieve_request(self,child_addr):
+        # will establish a connection to receive request
+        print(self.addr, 'request from:', child_addr)
+        self.queue.append(child_addr)
+        if self.token:
+            if not self.cs:
+                first_node = self.queue.pop(0)
+                self.parent = first_node
+                self.token = False
+                return self.send_token(self.parent)
+        elif len(self.queue) == 1:
+                return self.send_reqeust_to_parent()
+
+    # will be a thread sending info on port 50000
+    def send_token(self, parent):
+        # will establish a connection to send token
+        msg = {"head": "send_token"}
+        to_addr = parent
+        return msg, to_addr
+
+    # listen to the receiver node, will be a thread on port 60000
+    def send_reqeust_to_parent(self):
+        # will establish a connection to send request
+        msg = {"head": "request_token"}
+        to_addr = self.parent
+        return msg, to_addr
+
+    # will be a thread listening on port 50000
+    def receive_token(self, holder):
+        # will establish a connection to send request
+        request_addr = self.queue.pop(0)
+        self.token = True
+        if request_addr == self.addr:
+            self.parent = self.addr
+            return self.enterCS()
+        else:
+            self.parent = request_addr
+            self.token = False
+            self.send_token(self.parent)
+            if (len(self.queue) != 0):
+                self.send_reqeust_to_parent()
+
+    def enterCS(self):
+        msg = {'head': "enter"}
+        self.cs = True
+        time.sleep(2)
+        return msg, self.cs_addr
+
+    def exitCS(self):
+        self.CS = False
+        if len(self.queue) != 0:
+            first_node = self.queue.pop(0)
+            self.send_token(first_node)
+            self.parent = first_node
+            msg = {'head': 'send_'}
+            return self.send_token(self.parent)
+
+    def get_queue(self):
+        return [i for i in self.queue]
+
+    def want_token(self):
+        self.queue.append(self)
+        self.send_reqeust_to_parent()
+
+    def get_holder(self):
+        return self.parent
+
+    def __repr__(self):
+        return str(self.addr)
