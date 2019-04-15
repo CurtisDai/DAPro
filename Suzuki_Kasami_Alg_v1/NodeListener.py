@@ -3,7 +3,7 @@ import socket
 from MessageType import MessageType
 from MessageType import REQUEST,TOKEN
 from Log import *
-from Request import Request
+from Token import Token
 
 class NodeListener(Thread):
 
@@ -40,12 +40,11 @@ class NodeListener(Thread):
 
                 if rn.get(id) is not None:
                     rn[id] = max(rn[id],seq)
-
-                tokInfo = self._info['tokInfo']
-                if tokInfo.gotToken() and not tokInfo.usingToken():
-                    tok = self._info['tok'][0]
-                    if tok.isEmpty() and rn[id] == tok.getReqNum(id) + 1:
-                        self.sendToken(id)
+                # In original paper, the queue is updated when node leave CS
+                # tokInfo = self._info["tokInfo"]
+                # if tokInfo.gotToken() and not tokInfo.usingToken():
+                #     tok = self._info["tok"]
+                #     if rn[id] == tok.getReqNum() + 1:
 
             # Handing token message
             elif self._message.getType() == TOKEN:
@@ -56,25 +55,6 @@ class NodeListener(Thread):
                 listenerLOG(TOKENMSG, addr,id)
                 tok.append(tTok)
                 tokInfo.changeMode(hasToken=True)
-
-    def sendToken(self,id):
-        if not self._info['tokInfo'].gotToken() or self._info['tokInfo'].usingToken():
-            return False
-
-        msg = MessageType()
-        data = msg.genToken(self._info['tok'][0],self._info['id'])
-
-        nodeInfo = self._info['all'].getNode(id)
-        sendLOG(SENDTOK, nodeInfo.getHost() +':'+ str(nodeInfo.getPort()))
-        try:
-            self._s.sendto(data, (nodeInfo.getHost(), nodeInfo.getPort()))
-            self._info['tokInfo'].changeMode(hasToken=False,tokenInUse=False)
-            # pop the self._token to be [], not pop the queue
-            self._info['tok'].pop(0)
-        except Exception as e:
-            print(e)
-            return False
-        return True
 
 
     def close(self):

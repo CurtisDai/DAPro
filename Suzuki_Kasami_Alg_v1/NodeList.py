@@ -20,24 +20,11 @@ class NodeList:
 
         if self._nodeList is not None:
             if self._nodeList.get(node.getId()) is not None:
-                print("[Warning | Modifying existed node]: ",node.getId())
-                return False
+                print("[Warning | Modifying node]: ",node.getId())
         else:
             self._nodeList = {}
-            self._nodeList[node.getId()] = node
-            return True
 
-    # update the NodeList when parameter is a list of addr in the form of [ip:port,ip:port,...]
-    def updatefromAddrList(self,list):
-        newNodes = []
-        for ele in list:
-            ip,port = ele.split(":")
-            node = NodeInfo(ele,ip,port)
-            r = self.addNode(node)
-            if r:
-                newNodes.append(ele)
-        return newNodes
-
+        self._nodeList[node.getId()] = node
 
     def deletNode(self,node):
         assert isinstance(node, NodeInfo)
