@@ -6,8 +6,8 @@
 
 [Illustration]
 
-Queue can be updated whenever receive message, don't have to frequently invoke csEnter function
+1.Queue can be updated whenever receive message, don't have to frequently invoke csEnter function
 
-The testing program is written as invoking-by-user mode. That means, the token csEnter function is invoked only when user need to (by pressing "Enter")
+2.The testing program is written as invoking-by-user mode. That means, the token csEnter function is invoked only when user need to (by pressing "Enter")
 
-Algorithm is partially combined with master program, but little modification have been made to it. 
+3.Algorithm is partially combined with master program, but little modification have been made to it. 
