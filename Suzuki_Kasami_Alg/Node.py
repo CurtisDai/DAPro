@@ -2,8 +2,6 @@ import socket
 import threading
 import json
 import sys
-sys.path.append('.')
-sys.path.append('.\Suzuki_Kasami_Alg')
 from Suzuki_Kasami_Alg.NodeProg import NodeProg
 
 host = socket.gethostname()
