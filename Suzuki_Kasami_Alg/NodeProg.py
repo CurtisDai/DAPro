@@ -29,8 +29,8 @@ class NodeProg(Thread):
         self._id = id
         self._ip = nodeIp
         self._port = nodePort
-        self._serverIp = serverIp
-        self._serverPort = serverPort
+        #self._serverIp = serverIp
+        #self._serverPort = serverPort
         self._seqNum = 0
 
         #self._requestMade = False
@@ -168,7 +168,7 @@ class NodeProg(Thread):
             else:
                 if not self._Listeners.sendToken(tResult.getId()):
                     return False
-                return True
+                return (True,tResult.getId())
         else:
             return None
 
