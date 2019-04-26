@@ -1,7 +1,7 @@
 import socket
 import threading
 import json
-import Raymond.raymondNode
+import raymondNode
 import time
 
 host = socket.gethostname()
@@ -15,7 +15,7 @@ monitor = (monitor_addr,monitor_port)
 while True:
     algorithm = str(input('what kind of algorithm you wanna show?:'))
     if algorithm == 'raymond':
-        node = Raymond.raymondNode.Node(myaddr, port)
+        node = raymondNode.Node(myaddr, port)
         break
     else:
         print('no this algorithm')
@@ -58,19 +58,17 @@ class send(threading.Thread):
         s.sendto(data.encode(), monitor)  # send
         while True:
             print("Do you wanna go to critical section? (y/n)")
-            try:
-                letter = str(input())
-                if letter.lower == "y":
-                    msg,to_addr = node.want_token()
-                    data = json.dumps(msg)
+            letter = str(input())
+            if letter.lower() == "y":
+                msg, to_addr = node.want_token()
+                data = json.dumps(msg)
+                if to_addr:
                     s.sendto(data.encode(), to_addr)  # send
-                    s.sendto(data.encode(), monitor)
-                else:
-                    print("sleep for a while")
-                    time.sleep(2)
-            except Exception as e:
-                print(e)
-                pass
+                s.sendto(data.encode(), monitor)
+            else:
+                print("sleep for a while")
+                time.sleep(2)
+
 
 
 # start threads

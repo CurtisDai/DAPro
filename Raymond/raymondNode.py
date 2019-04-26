@@ -88,7 +88,7 @@ class Node(object):
 
     def want_token(self):
         self.queue.append(self)
-        self.send_reqeust_to_parent()
+        return self.send_reqeust_to_parent()
 
     def get_holder(self):
         return self.parent

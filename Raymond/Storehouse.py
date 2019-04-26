@@ -29,7 +29,7 @@ if __name__ == '__main__':
     host = socket.gethostname()
     myaddr = socket.gethostbyname(host)
     port = int(input('your port:'))
-    monitor_addr = input('logger ip address:')
+    monitor_addr = input("logger ip address:")
     monitor_port = int(input('logger port:'))
     monitor = (monitor_addr, monitor_port)
 
