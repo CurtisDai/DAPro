@@ -5,11 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Raymond/Node.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/Node.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Raymond/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/Server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Raymond/Storehouse.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/Storehouse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raymond/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/UI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Raymond/raymondNode.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/raymondNode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tkinter_version1" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +34,7 @@
           <entry key="java" value="2" />
           <entry key="md" value="2" />
           <entry key="project" value="1" />
-          <entry key="py" value="41" />
+          <entry key="py" value="43" />
           <entry key="pyi" value="1" />
           <entry key="txt" value="3" />
         </counts>
@@ -47,7 +44,7 @@
           <entry key="JAVA" value="2" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="41" />
+          <entry key="Python" value="43" />
           <entry key="PythonStub" value="1" />
         </counts>
       </usages-collector>
@@ -55,14 +52,14 @@
         <counts>
           <entry key="dummy" value="25" />
           <entry key="java" value="6" />
-          <entry key="py" value="5685" />
+          <entry key="py" value="6542" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="6" />
           <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="5685" />
+          <entry key="Python" value="6542" />
         </counts>
       </usages-collector>
     </session>
@@ -79,32 +76,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Raymond/raymondNode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+            <state relative-caret-position="549">
+              <caret line="70" column="38" lean-forward="true" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
               <folding>
-                <marker date="1556939384234" expanded="true" signature="675:992" ph="..." />
-                <marker date="1556939384234" expanded="true" signature="1889:1898" ph="..." />
+                <marker date="1556951028823" expanded="true" signature="674:987" ph="..." />
+                <marker date="1556951028823" expanded="true" signature="1913:1922" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1556951069811" expanded="true" signature="744:746" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Raymond/Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="198">
+              <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -115,8 +116,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="127" column="1" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="1" />
+            <state relative-caret-position="675">
+              <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+              <folding>
+                <marker date="1556949569657" expanded="true" signature="31:2777" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/SKNode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="187" column="37" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+            <state relative-caret-position="2768">
+              <caret line="199" column="31" selection-start-line="199" selection-start-column="31" selection-end-line="199" selection-end-column="31" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -156,6 +160,10 @@
     <findStrings>
       <find>head</find>
       <find>bind</find>
+      <find>exitCS</find>
+      <find>receive_request</find>
+      <find>CS</find>
+      <find>node =</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,11 +189,11 @@
         <option value="$PROJECT_DIR$/UI.py" />
         <option value="$PROJECT_DIR$/code/Server.py" />
         <option value="$PROJECT_DIR$/Raymond/Storehouse.py" />
-        <option value="$PROJECT_DIR$/Raymond/Node.py" />
         <option value="$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py" />
         <option value="$PROJECT_DIR$/Raymond/UI.py" />
-        <option value="$PROJECT_DIR$/Raymond/Server.py" />
         <option value="$PROJECT_DIR$/Raymond/raymondNode.py" />
+        <option value="$PROJECT_DIR$/Raymond/Node.py" />
+        <option value="$PROJECT_DIR$/Raymond/Server.py" />
       </list>
     </option>
   </component>
@@ -676,10 +684,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.2/python_stubs/690644531/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="138" column="17" selection-start-line="138" selection-start-column="10" selection-end-line="138" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Raymond/SKNode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="187" column="37" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+        <state relative-caret-position="2768">
+          <caret line="199" column="31" selection-start-line="199" selection-start-column="31" selection-end-line="199" selection-end-column="31" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -688,35 +703,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Raymond/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="127" column="1" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Raymond/Server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="675">
+          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1556949569657" expanded="true" signature="31:2777" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Raymond/raymondNode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        <state relative-caret-position="549">
+          <caret line="70" column="38" lean-forward="true" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
           <folding>
-            <marker date="1556939384234" expanded="true" signature="675:992" ph="..." />
-            <marker date="1556939384234" expanded="true" signature="1889:1898" ph="..." />
+            <marker date="1556951028823" expanded="true" signature="674:987" ph="..." />
+            <marker date="1556951028823" expanded="true" signature="1913:1922" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1556951069811" expanded="true" signature="744:746" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Raymond/Server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

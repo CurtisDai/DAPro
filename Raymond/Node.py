@@ -8,8 +8,10 @@ import time
 host = socket.gethostname()
 myaddr = socket.gethostbyname(host)
 port = int(input('your port:'))
-monitor_addr = input('logger ip address:')
-monitor_port = int(input('logger port:'))
+# monitor_addr = input('logger ip address:')
+# monitor_port = int(input('logger port:'))
+monitor_addr = "10.12.175.94"
+monitor_port = 6000
 monitor = (monitor_addr,monitor_port)
 
 # socket
@@ -17,6 +19,15 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind((host, port))
 node = None
 # receiving
+
+def msg_sending(msg,to_addr):
+    msg = json.dumps(msg)
+    s.sendto(msg.encode(), to_addr)
+    if to_addr != monitor:
+        pack = {"head": "log", "from": (myaddr, port), "to": to_addr, "msg": msg}
+        pack = json.dumps(pack)
+        s.sendto(pack.encode(), monitor)
+
 class listen(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
@@ -37,14 +48,13 @@ class listen(threading.Thread):
                 output,to_addr = node.recieve_message(data,addr)
                 print(output,to_addr)
                 if to_addr:
-                    output = json.dumps(output)
-                    s.sendto(output.encode(), to_addr)
-                    if to_addr != monitor:
-                        pack = {"head":"log","from":(myaddr,port), "to":to_addr,"msg":output}
-                        pack = json.dumps(pack)
-                        s.sendto(pack.encode(), monitor)
+                    msg_sending(output,to_addr)
 
-
+                if output:
+                    if output["head"] == "enter":
+                        msg, to_addr = node.exitCS()
+                        if to_addr:
+                            msg_sending(msg, to_addr)
 
 # send
 class send(threading.Thread):

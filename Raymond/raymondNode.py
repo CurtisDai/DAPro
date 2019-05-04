@@ -12,7 +12,6 @@ class Node(object):
         self.monitor = None
 
 
-
     def recieve_message(self,data,addr):
         if data["head"] == 'request_token':
             return self.receive_request(addr)
@@ -29,7 +28,7 @@ class Node(object):
             self.token = True
         msg = {"head": "info", "node": self.addr, "parent": self.parent,"token": self.token}
         return msg, self.monitor
-    
+
     # listen to the request node, will be a thread on port 60000
     def receive_request(self,child_addr):
         # will establish a connection to receive request
@@ -41,6 +40,7 @@ class Node(object):
                 self.parent = first_node
                 self.token = False
                 return self.send_token(self.parent)
+            return None,None
         elif len(self.queue) == 1:
                 return self.send_reqeust_to_parent()
 
@@ -58,7 +58,6 @@ class Node(object):
         to_addr = self.parent
         return msg, to_addr
 
-    # will be a thread listening on port 50000
     def receive_token(self, holder):
         # will establish a connection to send request
         request_addr = self.queue.pop(0)
@@ -71,25 +70,24 @@ class Node(object):
             print("pass token")
             self.parent = request_addr
             self.token = False
-            self.send_token(self.parent)
-            if (len(self.queue) != 0):
-                self.send_reqeust_to_parent()
+            return self.send_token(self.parent)
 
 
     def enterCS(self):
         msg = {'head': "enter"}
         self.cs = True
-        time.sleep(2)
+        print("entering CS")
         return msg, self.cs_addr
 
     def exitCS(self):
-        self.CS = False
+        self.cs = False
+        print("exit CS")
         if len(self.queue) != 0:
             first_node = self.queue.pop(0)
             self.send_token(first_node)
             self.parent = first_node
-            msg = {'head': 'send_'}
             return self.send_token(self.parent)
+        return None,None
 
     def get_queue(self):
         return [i for i in self.queue]
