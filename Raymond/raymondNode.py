@@ -99,5 +99,8 @@ class Node(object):
     def get_holder(self):
         return self.parent
 
+    def get_status(self):
+        return {"have_token":self.token, "parent":self.parent}
+
     def __repr__(self):
         return str(self.addr)

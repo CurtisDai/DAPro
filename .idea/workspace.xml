@@ -4,8 +4,8 @@
     <list default="true" id="0fefccd1-cbe7-492b-ae7b-6c0cf5026550" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Raymond/Node.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/Node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raymond/SKNode.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/SKNode.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Raymond/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/Server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Raymond/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/UI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Raymond/raymondNode.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/raymondNode.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,14 +52,14 @@
         <counts>
           <entry key="dummy" value="25" />
           <entry key="java" value="6" />
-          <entry key="py" value="6542" />
+          <entry key="py" value="7370" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="6" />
           <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="6542" />
+          <entry key="Python" value="7370" />
         </counts>
       </usages-collector>
     </session>
@@ -78,11 +78,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/raymondNode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="70" column="38" lean-forward="true" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="105" selection-end-column="29" />
               <folding>
-                <marker date="1556951028823" expanded="true" signature="674:987" ph="..." />
-                <marker date="1556951028823" expanded="true" signature="1913:1922" ph="..." />
+                <marker date="1556955472711" expanded="true" signature="674:987" ph="..." />
+                <marker date="1556955472711" expanded="true" signature="1913:1922" ph="..." />
+                <marker date="1556955472711" expanded="true" signature="3221:3290" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,11 +92,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+            <state relative-caret-position="240">
+              <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1556951069811" expanded="true" signature="744:746" ph="..." />
+                <marker date="1556954651470" expanded="true" signature="772:774" ph="..." />
               </folding>
             </state>
           </provider>
@@ -104,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Raymond/Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+            <state relative-caret-position="633">
+              <caret line="72" column="1" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -116,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+            <state relative-caret-position="411">
+              <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
               <folding>
                 <marker date="1556949569657" expanded="true" signature="31:2777" ph="..." />
               </folding>
@@ -128,8 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/SKNode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2768">
-              <caret line="199" column="31" selection-start-line="199" selection-start-column="31" selection-end-line="199" selection-end-column="31" />
+            <state relative-caret-position="390">
+              <caret line="26" column="38" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="38" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -164,6 +165,7 @@
       <find>receive_request</find>
       <find>CS</find>
       <find>node =</find>
+      <find>parent_node</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,14 +187,14 @@
         <option value="$PROJECT_DIR$/Suzuki_Kasami_Alg/__init__.py" />
         <option value="$PROJECT_DIR$/code/Node.py" />
         <option value="$PROJECT_DIR$/tkinter_version1.py" />
-        <option value="$PROJECT_DIR$/Raymond/SKNode.py" />
         <option value="$PROJECT_DIR$/UI.py" />
         <option value="$PROJECT_DIR$/code/Server.py" />
         <option value="$PROJECT_DIR$/Raymond/Storehouse.py" />
         <option value="$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py" />
         <option value="$PROJECT_DIR$/Raymond/UI.py" />
-        <option value="$PROJECT_DIR$/Raymond/raymondNode.py" />
         <option value="$PROJECT_DIR$/Raymond/Node.py" />
+        <option value="$PROJECT_DIR$/Raymond/raymondNode.py" />
+        <option value="$PROJECT_DIR$/Raymond/SKNode.py" />
         <option value="$PROJECT_DIR$/Raymond/Server.py" />
       </list>
     </option>
@@ -503,7 +505,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -691,10 +693,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Raymond/raymondNode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="105" selection-end-column="29" />
+          <folding>
+            <marker date="1556955472711" expanded="true" signature="674:987" ph="..." />
+            <marker date="1556955472711" expanded="true" signature="1913:1922" ph="..." />
+            <marker date="1556955472711" expanded="true" signature="3221:3290" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Raymond/SKNode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2768">
-          <caret line="199" column="31" selection-start-line="199" selection-start-column="31" selection-end-line="199" selection-end-column="31" />
+        <state relative-caret-position="390">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="38" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -703,40 +717,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Raymond/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+        <state relative-caret-position="411">
+          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
           <folding>
             <marker date="1556949569657" expanded="true" signature="31:2777" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Raymond/raymondNode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="70" column="38" lean-forward="true" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
-          <folding>
-            <marker date="1556951028823" expanded="true" signature="674:987" ph="..." />
-            <marker date="1556951028823" expanded="true" signature="1913:1922" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        <state relative-caret-position="240">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1556951069811" expanded="true" signature="744:746" ph="..." />
+            <marker date="1556954651470" expanded="true" signature="772:774" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Raymond/Server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+        <state relative-caret-position="633">
+          <caret line="72" column="1" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

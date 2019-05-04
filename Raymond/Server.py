@@ -16,6 +16,11 @@ class ThreadClient():
         self.gui = UI.UI(self.window)
         self.starting()
         self.gui.add_node("CS")
+        self.client_ID = {}
+        self.client_ID[cs_location] = "CS"
+        if algorithm == "suzuki":
+            self.tokenholder = None
+
 
     def start_listen(self):
         global operation_count
@@ -23,12 +28,13 @@ class ThreadClient():
 
         while True:
             data, client_addr = server.recvfrom(BUFSIZE)
+            client_addr = tuple(client_addr)
             msg = json.loads(data)
             print(msg)
             info_buf.append(msg)
             if msg["head"] == 'login':
                 token = False
-                client_ID[tuple(client_addr)] = str(num)
+                self.client_ID[client_addr] = str(num)
                 self.gui.add_node(str(num))
 
                 num += 1
@@ -42,26 +48,53 @@ class ThreadClient():
                         token = True
 
                     data = {"head": 'initialize', "algorithm": algorithm,
-                            "content": {"parent": parent, "cs_addr": storehouse, "token": token}}
+                            "content": {"parent": parent,"cs_addr": storehouse, "token": token}}
                     data = json.dumps(data)
                     if client_addr not in client:
                         client.append(client_addr)
 
                     server.sendto(data.encode(), client_addr)
+                else:
+                    last_req_num = {}
+                    for ID in self.client_ID.values():
+                        last_req_num[ID] = 0
+
+                    token = {"last_req_num": last_req_num, "queue": []}
+
+                    if not self.tokenholder:
+                        self.tokenholder = client_addr
+
+
+                    data = {"head": 'update',"net_info": self.client_ID, "token": token}
+                    data = json.dumps(data)
+                    server.sendto(data.encode(), self.tokenholder)
+
+                    data = {"head": 'update', "net_info": self.client_ID, "token": None}
+ 
+
+
+
+
+
+
+                    client.append(client_addr)
+
+
 
             prefix = '[' + str(operation_count) + ']:'
 
             if msg["head"] == "log":
-                first_node = client_ID[tuple(msg["from"])]
-                second_node = client_ID[tuple(msg["to"])]
+                first_node = self.client_ID[tuple(msg["from"])]
+                second_node = self.client_ID[tuple(msg["to"])]
                 if (first_node, second_node) not in self.gui.edge_id:
                     self.gui.edge_id[first_node, second_node] = self.gui.add_edge(first_node, second_node,prefix + str(msg["msg"]))
                 else:
                     self.gui.update_edge(first_node, second_node, prefix + str(msg["msg"]))
+                self.gui.update_node(first_node, prefix + str(msg['status']))
 
             elif msg["head"] == "info":
                 print(msg["node"])
-                node = client_ID[tuple(msg["node"])]
+                node = self.client_ID[tuple(msg["node"])]
                 self.gui.update_node(node, prefix + node + str(msg['parent']) + str(msg['token']))
 
             operation_count += 1
@@ -119,10 +152,10 @@ if __name__ == '__main__':
     client = []
     storehouse = cs_location
 
-    client_ID = {}
+
 
     num = 0
-    client_ID[cs_location] = "CS"
+
 
     print("start listening")
 

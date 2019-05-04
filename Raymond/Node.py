@@ -24,7 +24,7 @@ def msg_sending(msg,to_addr):
     msg = json.dumps(msg)
     s.sendto(msg.encode(), to_addr)
     if to_addr != monitor:
-        pack = {"head": "log", "from": (myaddr, port), "to": to_addr, "msg": msg}
+        pack = {"head": "log", "from": (myaddr, port), "to": to_addr, "msg": msg,"status": node.get_status()}
         pack = json.dumps(pack)
         s.sendto(pack.encode(), monitor)
 
@@ -71,12 +71,7 @@ class send(threading.Thread):
                 letter = str(input())
                 if letter.lower() == "y":
                     msg, to_addr = node.want_token()
-                    pack = {"head":"log", "from": (myaddr, port), "to": to_addr, "msg": msg}
-                    if to_addr:
-                        data = json.dumps(msg)
-                        s.sendto(data.encode(), to_addr)  # send
-                    pack = json.dumps(pack)
-                    s.sendto(pack.encode(), monitor)
+                    msg_sending(msg, to_addr)
                 else:
                     print("sleep for a while")
             time.sleep(5)
