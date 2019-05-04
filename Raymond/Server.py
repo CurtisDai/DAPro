@@ -52,34 +52,27 @@ class ThreadClient():
                     data = json.dumps(data)
                     if client_addr not in client:
                         client.append(client_addr)
-
                     server.sendto(data.encode(), client_addr)
                 else:
                     last_req_num = {}
                     for ID in self.client_ID.values():
                         last_req_num[ID] = 0
 
-                    token = {"last_req_num": last_req_num, "queue": []}
+                    data = {"head": 'initialize', "algorithm": algorithm,"cs_addr": storehouse}
+                    data = json.dumps(data)
+                    server.sendto(data.encode(), client_addr)
 
+                    token = {"last_req_num": last_req_num, "queue": []}
                     if not self.tokenholder:
                         self.tokenholder = client_addr
-
-
-                    data = {"head": 'update',"net_info": self.client_ID, "token": token}
+                    data = {"head": 'send_token', "token": token}
                     data = json.dumps(data)
                     server.sendto(data.encode(), self.tokenholder)
 
-                    data = {"head": 'update', "net_info": self.client_ID, "token": None}
- 
-
-
-
-
-
-
-                    client.append(client_addr)
-
-
+                    data = {"head": 'update', "net_info": self.client_ID}
+                    data = json.dumps(data)
+                    for addr in self.client_ID.keys():
+                        server.sendto(data.encode(), addr)
 
             prefix = '[' + str(operation_count) + ']:'
 
@@ -91,11 +84,13 @@ class ThreadClient():
                 else:
                     self.gui.update_edge(first_node, second_node, prefix + str(msg["msg"]))
                 self.gui.update_node(first_node, prefix + str(msg['status']))
+                self.gui.add_parent(first_node,second_node)
 
             elif msg["head"] == "info":
                 print(msg["node"])
                 node = self.client_ID[tuple(msg["node"])]
                 self.gui.update_node(node, prefix + node + str(msg['parent']) + str(msg['token']))
+                self.gui.add_parent(node,self.client_ID[tuple(msg["parent"])])
 
             operation_count += 1
 
@@ -176,20 +171,5 @@ if __name__ == '__main__':
 
 
 
-
-
-        # elif algorithm == "suzuki":
-        #     if client:
-        #         update = {"head": "update", "content": client_addr}
-        #         update = json.dumps(update)
-        #         for addr in client:
-        #             server.sendto(update.encode(),addr)
-        #
-        #         client.append(client_addr)
-        #         data = {"head": 'initialize', "algorithm": algorithm, "content": {"nodelist": client, "cs_addr": storehouse}}
-        #         data = json.dumps(data)
-        #         server.sendto(data.encode(), client_addr)
-        #     else:
-        #         token = True
 
 

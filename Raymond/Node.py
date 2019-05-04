@@ -71,7 +71,11 @@ class send(threading.Thread):
                 letter = str(input())
                 if letter.lower() == "y":
                     msg, to_addr = node.want_token()
-                    msg_sending(msg, to_addr)
+                    if type(to_addr) is list:
+                        for addr in to_addr:
+                            msg_sending(msg, addr)
+                    else:
+                        msg_sending(msg, to_addr)
                 else:
                     print("sleep for a while")
             time.sleep(5)
