@@ -9,24 +9,29 @@ class Node(object):
         self.cs = cs
         self.token = token
         self.queue = []
+        self.monitor = None
 
 
 
     def recieve_message(self,data,addr):
         if data["head"] == 'request_token':
-            return self.recieve_request(addr)
+            return self.receive_request(addr)
         elif data["head"] == 'send_token':
             return self.receive_token(addr)
         elif data["head"] == 'initialize':
-            return self.initialize(data["content"])
+            return self.initialize(data["content"],addr)
 
-    def initialize(self,data):
-        self.parent = data["parent"]
-        self.cs_addr = data["cs_addr"]
-        return "Success initialized"
-
+    def initialize(self,data,addr):
+        self.parent = tuple(data["parent"])
+        self.cs_addr = tuple(data["cs_addr"])
+        self.monitor = tuple(addr)
+        if data["token"]:
+            self.token = True
+        msg = {"head": "info", "node": self.addr, "parent": self.parent,"token": self.token}
+        return msg, self.monitor
+    
     # listen to the request node, will be a thread on port 60000
-    def recieve_request(self,child_addr):
+    def receive_request(self,child_addr):
         # will establish a connection to receive request
         print(self.addr, 'request from:', child_addr)
         self.queue.append(child_addr)
@@ -60,13 +65,16 @@ class Node(object):
         self.token = True
         if request_addr == self.addr:
             self.parent = self.addr
+            print("enter CS")
             return self.enterCS()
         else:
+            print("pass token")
             self.parent = request_addr
             self.token = False
             self.send_token(self.parent)
             if (len(self.queue) != 0):
                 self.send_reqeust_to_parent()
+
 
     def enterCS(self):
         msg = {'head': "enter"}
@@ -87,7 +95,7 @@ class Node(object):
         return [i for i in self.queue]
 
     def want_token(self):
-        self.queue.append(self)
+        self.queue.append(self.addr)
         return self.send_reqeust_to_parent()
 
     def get_holder(self):

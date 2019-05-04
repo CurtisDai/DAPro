@@ -2,6 +2,7 @@ import socket
 import threading
 import json
 import raymondNode
+import SKNode
 import time
 
 host = socket.gethostname()
@@ -11,19 +12,10 @@ monitor_addr = input('logger ip address:')
 monitor_port = int(input('logger port:'))
 monitor = (monitor_addr,monitor_port)
 
-
-while True:
-    algorithm = str(input('what kind of algorithm you wanna show?:'))
-    if algorithm == 'raymond':
-        node = raymondNode.Node(myaddr, port)
-        break
-    else:
-        print('no this algorithm')
-
 # socket
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind((host, port))
-
+node = None
 # receiving
 class listen(threading.Thread):
     def __init__(self):
@@ -31,20 +23,27 @@ class listen(threading.Thread):
 
     def run(self):
         print('start listening\r\n')
+        global node
         while True:
             msg, addr = s.recvfrom(2048)  # receive
-            try:
-                data = json.loads(msg)
+
+            data = json.loads(msg)
+            if data['head'] == 'initialize':
+                if data["algorithm"] == "raymond":
+                    node = raymondNode.Node(myaddr,port)
+                else:
+                    node = SKNode.Node()
+            if node:
                 output,to_addr = node.recieve_message(data,addr)
+                print(output,to_addr)
                 if to_addr:
                     output = json.dumps(output)
                     s.sendto(output.encode(), to_addr)
-                if output:
-                    output = json.dumps(output)
-                    s.sendto(output.encode(), monitor)
-            except Exception as e:
-                s.sendto(str(e).encode(), addr)
-                pass
+                    if to_addr != monitor:
+                        pack = {"head":"log","from":(myaddr,port), "to":to_addr,"msg":output}
+                        pack = json.dumps(pack)
+                        s.sendto(pack.encode(), monitor)
+
 
 
 # send
@@ -53,21 +52,25 @@ class send(threading.Thread):
         threading.Thread.__init__(self)
 
     def run(self):
-        msg = {"head": "login", "algorithm": algorithm}
-        data = json.dumps(msg)
-        s.sendto(data.encode(), monitor)  # send
+        msg = {"head":"login"}
+        msg = json.dumps(msg)
+        s.sendto(msg.encode(), monitor)  # send
         while True:
-            print("Do you wanna go to critical section? (y/n)")
-            letter = str(input())
-            if letter.lower() == "y":
-                msg, to_addr = node.want_token()
-                data = json.dumps(msg)
-                if to_addr:
-                    s.sendto(data.encode(), to_addr)  # send
-                s.sendto(data.encode(), monitor)
-            else:
-                print("sleep for a while")
-                time.sleep(2)
+            if node:
+                print("Do you wanna go to critical section? (y/n)")
+                letter = str(input())
+                if letter.lower() == "y":
+                    msg, to_addr = node.want_token()
+                    pack = {"head":"log", "from": (myaddr, port), "to": to_addr, "msg": msg}
+                    if to_addr:
+                        data = json.dumps(msg)
+                        s.sendto(data.encode(), to_addr)  # send
+                    pack = json.dumps(pack)
+                    s.sendto(pack.encode(), monitor)
+                else:
+                    print("sleep for a while")
+            time.sleep(5)
+
 
 
 

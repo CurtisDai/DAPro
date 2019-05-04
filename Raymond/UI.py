@@ -1,4 +1,5 @@
 import tkinter as tk
+
 class UI:
 	def __init__(self,window,node_name):
 		window.title('Mutual Exclusion Demo')
@@ -88,37 +89,43 @@ class UI:
 		self.node_id[self.node_name[5]] = self.canvas.create_text(x5,y5, text='\nNode '+str(self.node_name[5]),font=("Purisa", 16), width=200)            
 
 	def update_node(self, target_name, target_message):
-		self.canvas.insert(self.node_id[target_name], tk.END, '\n'+target_message) 
+		self.canvas.insert(self.node_id[target_name], tk.END, '\n'+target_message)
 
-window = tk.Tk()
-node_name = ['0','1','2','3','4','5']
-ui = UI(window, node_name)
 
-keyboard_input = input('options:\n0.updateNode\n1.createEdge\n2.updateEdge\n')
-operation_count = 0
-while keyboard_input != 'q':
-	prefix = '['+str(operation_count)+']:'
 
-	if keyboard_input == '0':
-		keyboard_input = input('Enter the node\'s name needs update\n')
-		ui.update_node(keyboard_input,prefix+keyboard_input+' has been updated.')
-	
-	elif keyboard_input == '1':
-		first_node = input('Enter first node\'s name of edge to create\n')
-		second_node = input('Enter second node\'s name of edge to create\n')
-		if first_node!=second_node and (first_node,second_node) not in ui.edge_id:
-			ui.edge_id[first_node,second_node] = ui.add_edge(first_node,second_node,prefix+'new edge created')
-		else:
-			print('Plz enter valid node\'s name')
-	elif keyboard_input == '2':
-		first_node = input('Enter first node\'s name of edge to update\n')
-		second_node = input('Enter second node\'s name of edge to update\n')
-		if (first_node,second_node) in ui.edge_id:
-			ui.update_edge(first_node,second_node,prefix+':existed edge updated')
-		else:
-			print('Plz create edge first.')
 
-	operation_count += 1
-	keyboard_input = input('options:\n0.updateNode\n1.createEdge\n2.updateEdge\n')
 
-window.destroy()
+
+
+
+
+
+#
+# keyboard_input = input('options:\n0.updateNode\n1.createEdge\n2.updateEdge\n')
+# operation_count = 0
+# while keyboard_input != 'q':
+# 	prefix = '[' + str(operation_count) + ']:'
+#
+# 	if keyboard_input == '0':
+# 		keyboard_input = input('Enter the node\'s name needs update\n')
+# 		ui.update_node(keyboard_input, prefix + keyboard_input + ' has been updated.')
+#
+# 	elif keyboard_input == '1':
+# 		first_node = input('Enter first node\'s name of edge to create\n')
+# 		second_node = input('Enter second node\'s name of edge to create\n')
+# 		if first_node != second_node and (first_node, second_node) not in ui.edge_id:
+# 			ui.edge_id[first_node, second_node] = ui.add_edge(first_node, second_node, prefix + 'new edge created')
+# 		else:
+# 			print('Plz enter valid node\'s name')
+# 	elif keyboard_input == '2':
+# 		first_node = input('Enter first node\'s name of edge to update\n')
+# 		second_node = input('Enter second node\'s name of edge to update\n')
+# 		if (first_node, second_node) in ui.edge_id:
+# 			ui.update_edge(first_node, second_node, prefix + ':existed edge updated')
+# 		else:
+# 			print('Plz create edge first.')
+#
+#
+# 	keyboard_input = input('options:\n0.updateNode\n1.createEdge\n2.updateEdge\n')
+#
+# window.destroy()

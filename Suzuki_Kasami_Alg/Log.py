@@ -1,4 +1,3 @@
-
 REQUESTMSG = "Request"
 TOKENMSG = "Token"
 ERRORMSG = "Eor"
@@ -32,3 +31,4 @@ def notifyLOG(type):
 
     if type == TIMEOUT:
         print("[State]: No token response, waiting or retry")
+

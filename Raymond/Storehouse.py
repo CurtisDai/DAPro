@@ -12,6 +12,9 @@ class server(threading.Thread):
     def run(self):
         global MONEY
         print('start listening\r\n')
+        host = socket.gethostname()
+        myaddr = socket.gethostbyname(host)
+        print("my address: ",myaddr)
         while True:
             msg,addr = s.recvfrom(2048)
             try:
@@ -29,16 +32,11 @@ if __name__ == '__main__':
     host = socket.gethostname()
     myaddr = socket.gethostbyname(host)
     port = int(input('your port:'))
-    monitor_addr = input("logger ip address:")
-    monitor_port = int(input('logger port:'))
-    monitor = (monitor_addr, monitor_port)
-
     # socket
+
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     s.bind((host, port))
-    data = {"head": "storehouse", "password": "storehouse"}
-    s.sendto(json.dumps(data).encode(), monitor)
 
     thread = server()
     thread.start()
