@@ -15,9 +15,9 @@ class ThreadClient():
         self.window = window
         self.gui = UI.UI(self.window)
         self.starting()
-        self.gui.add_node("CS")
-        self.client_ID = {}
-        self.client_ID[cs_location] = "CS"
+        self.gui.add_node("cs")
+        self.client = []
+        self.cs = cs_location
         if algorithm == "suzuki":
             self.tokenholder = None
 
@@ -34,29 +34,33 @@ class ThreadClient():
             info_buf.append(msg)
             if msg["head"] == 'login':
                 token = False
-                self.client_ID[client_addr] = str(num)
                 self.gui.add_node(str(num))
-
                 num += 1
-
                 if algorithm == "raymond":
-                    if client:
-                        i = random.randint(0, len(client) - 1)
-                        parent = client[i]
+                    if self.client:
+                        i = random.randint(0, len(self.client) - 1)
+                        parent = self.client[i]
                     else:
                         parent = client_addr
                         token = True
+                    if client_addr not in self.client:
+                        self.client.append(client_addr)
 
                     data = {"head": 'initialize', "algorithm": algorithm,
                             "content": {"parent": parent,"cs_addr": storehouse, "token": token}}
+                    print(self.client.index(client_addr))
+                    print(self.client.index(parent))
+                    self.gui.add_parent(str(self.client.index(client_addr)), str(self.client.index(parent)))
                     data = json.dumps(data)
-                    if client_addr not in client:
-                        client.append(client_addr)
+
                     server.sendto(data.encode(), client_addr)
                 else:
+                    self.client.append(client_addr)
                     last_req_num = {}
-                    for ID in self.client_ID.values():
-                        last_req_num[ID] = 0
+                    if self.client:
+                        for addr in self.client:
+                            ID = self.client.index(addr)
+                            last_req_num[ID] = 0
 
                     data = {"head": 'initialize', "algorithm": algorithm,"cs_addr": storehouse}
                     data = json.dumps(data)
@@ -69,32 +73,41 @@ class ThreadClient():
                     data = json.dumps(data)
                     server.sendto(data.encode(), self.tokenholder)
 
-                    data = {"head": 'update', "net_info": self.client_ID}
+                    print(self.client)
+                    data = {"head": 'update', "net_info": self.client}
                     data = json.dumps(data)
-                    for addr in self.client_ID.keys():
+                    for addr in self.client:
                         server.sendto(data.encode(), addr)
 
             prefix = '[' + str(operation_count) + ']:'
 
             if msg["head"] == "log":
-                first_node = self.client_ID[tuple(msg["from"])]
-                second_node = self.client_ID[tuple(msg["to"])]
+
+                first_node = str(self.client.index(tuple(msg["from"])))
+                if tuple(msg["to"]) == self.cs:
+                    second_node = "cs"
+                else:
+                    second_node = str(self.client.index(tuple(msg["to"])))
+
                 if (first_node, second_node) not in self.gui.edge_id:
-                    self.gui.edge_id[first_node, second_node] = self.gui.add_edge(first_node, second_node,prefix + str(msg["msg"]))
+                    self.gui.add_edge(first_node, second_node,prefix + str(msg["msg"]))
                 else:
                     self.gui.update_edge(first_node, second_node, prefix + str(msg["msg"]))
                 self.gui.update_node(first_node, prefix + str(msg['status']))
-                self.gui.add_parent(first_node,second_node)
+
+                if algorithm == "raymond":
+                    self.gui.add_parent(first_node, str(self.client.index(tuple(msg['status']['parent']))))
+
 
             elif msg["head"] == "info":
                 print(msg["node"])
-                node = self.client_ID[tuple(msg["node"])]
-                self.gui.update_node(node, prefix + node + str(msg['parent']) + str(msg['token']))
-                self.gui.add_parent(node,self.client_ID[tuple(msg["parent"])])
+                node = str(self.client.index(tuple(msg["node"])))
+                self.gui.update_node(node, prefix + str(msg['token']))
+                if algorithm == "raymond":
+                    self.gui.add_parent(node,str(self.client.index(tuple(msg["parent"]))))
 
             operation_count += 1
-
-            time.sleep(5)
+            time.sleep(2)
         server.close()
 
 
@@ -144,7 +157,7 @@ if __name__ == '__main__':
     print("*" * 80)
 
     BUFSIZE = 2048
-    client = []
+
     storehouse = cs_location
 
 

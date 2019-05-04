@@ -43,7 +43,7 @@ class listen(threading.Thread):
                 if data["algorithm"] == "raymond":
                     node = raymondNode.Node(myaddr,port)
                 else:
-                    node = SKNode.Node()
+                    node = SKNode.Node(myaddr,port)
             if node:
                 output,to_addr = node.recieve_message(data,addr)
                 print(output,to_addr)
@@ -52,6 +52,7 @@ class listen(threading.Thread):
 
                 if output:
                     if output["head"] == "enter":
+                        time.sleep(2)
                         msg, to_addr = node.exitCS()
                         if to_addr:
                             msg_sending(msg, to_addr)

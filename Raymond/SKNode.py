@@ -32,10 +32,12 @@ class Node(object):
         self.ID = self.net_addr[self.addr]
         for ID in self.net_addr.values():
             self.request_number[ID] = self.request_number.get(ID,0)
+        return None,None
 
     def initialize(self,data,addr):
         self.cs_addr = data
         self.monitor = tuple(addr)
+        return None,None
 
     def want_token(self):
         self.want = True
@@ -50,6 +52,7 @@ class Node(object):
         msg = {"head": "request_token","request_number":self.request_number[self.ID]}
         to_addr = list(self.net_addr.keys())
         to_addr.remove(self.addr)
+        to_addr.remove(self.cs_addr)
         return msg, to_addr
 
 
