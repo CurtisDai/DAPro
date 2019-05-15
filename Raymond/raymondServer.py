@@ -5,23 +5,19 @@ import threading
 import tkinter as tk
 import UI
 import time
-
-
-
+import sys
 
 
 class ThreadClient():
-    def __init__(self, window):
+    def __init__(self,window):
         self.window = window
         self.gui = UI.UI(self.window)
         self.starting()
         self.gui.add_node("cs")
         self.client = []
         self.cs = cs_location
-        if algorithm == "suzuki":
-            self.tokenholder = None
 
-
+    # listen thread to collect information transferring between nodes
     def start_listen(self):
         global operation_count
         global num
@@ -54,30 +50,7 @@ class ThreadClient():
                     data = json.dumps(data)
 
                     server.sendto(data.encode(), client_addr)
-                else:
-                    self.client.append(client_addr)
-                    last_req_num = {}
-                    if self.client:
-                        for addr in self.client:
-                            ID = self.client.index(addr)
-                            last_req_num[ID] = 0
 
-                    data = {"head": 'initialize', "algorithm": algorithm,"cs_addr": storehouse}
-                    data = json.dumps(data)
-                    server.sendto(data.encode(), client_addr)
-
-                    token = {"last_req_num": last_req_num, "queue": []}
-                    if not self.tokenholder:
-                        self.tokenholder = client_addr
-                    data = {"head": 'send_token', "token": token}
-                    data = json.dumps(data)
-                    server.sendto(data.encode(), self.tokenholder)
-
-                    print(self.client)
-                    data = {"head": 'update', "net_info": self.client}
-                    data = json.dumps(data)
-                    for addr in self.client:
-                        server.sendto(data.encode(), addr)
 
             prefix = '[' + str(operation_count) + ']:'
 
@@ -98,7 +71,6 @@ class ThreadClient():
                 if algorithm == "raymond":
                     self.gui.add_parent(first_node, str(self.client.index(tuple(msg['status']['parent']))))
 
-
             elif msg["head"] == "info":
                 print(msg["node"])
                 node = str(self.client.index(tuple(msg["node"])))
@@ -111,6 +83,7 @@ class ThreadClient():
         server.close()
 
 
+    # start method
     def starting(self):
         self.thread = threading.Thread(target=self.start_listen)
         self.thread.start()
@@ -140,10 +113,26 @@ if __name__ == '__main__':
     # cs_addr = input("cs ip address:")
     # cs_port = int(input('cs port:'))
     # cs_location = (cs_addr, cs_port)
+    if sys.argv[1]:
+        port = int(sys.argv[1])
+    else:
+        port = int(input('Set your local port:'))
 
-    port = 6000
-    cs_addr = "10.12.175.94"
-    cs_port = 7000
+    if sys.argv[2]:
+        cs_addr = sys.argv[2]
+    else:
+        cs_addr = input("cs ip address:")
+
+    if sys.argv[3]:
+        cs_port = int(sys.argv[3])
+    else:
+        cs_port = int(input('cs port:'))
+
+    #
+    #
+    # cs_addr = "10.12.161.119"
+    # cs_port = 6666
+    #
     cs_location = (cs_addr, cs_port)
     address = (myaddr, port)
     algorithm = "raymond"

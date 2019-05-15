@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fefccd1-cbe7-492b-ae7b-6c0cf5026550" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CNode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Raymond/raymondServer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Raymond/Node.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/Node.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Raymond/SKNode.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/SKNode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Raymond/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/Server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Raymond/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Raymond/UI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raymond/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/CServer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,14 +19,14 @@
     <session id="1852349651">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
-          <entry key="project.open.time.1" value="4" />
+          <entry key="project.closed" value="10" />
+          <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -35,7 +35,7 @@
           <entry key="java" value="2" />
           <entry key="md" value="2" />
           <entry key="project" value="1" />
-          <entry key="py" value="43" />
+          <entry key="py" value="45" />
           <entry key="pyi" value="1" />
           <entry key="txt" value="3" />
         </counts>
@@ -45,22 +45,22 @@
           <entry key="JAVA" value="2" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="43" />
+          <entry key="Python" value="45" />
           <entry key="PythonStub" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="25" />
+          <entry key="dummy" value="36" />
           <entry key="java" value="6" />
-          <entry key="py" value="9210" />
+          <entry key="py" value="9823" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="6" />
-          <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="9210" />
+          <entry key="PLAIN_TEXT" value="36" />
+          <entry key="Python" value="9823" />
         </counts>
       </usages-collector>
     </session>
@@ -70,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+            <state relative-caret-position="180">
+              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -79,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/raymondNode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+            <state relative-caret-position="1440">
+              <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
               <folding>
                 <marker date="1556955472711" expanded="true" signature="674:987" ph="..." />
                 <marker date="1556955472711" expanded="true" signature="1913:1922" ph="..." />
@@ -91,23 +91,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
+        <entry file="file://$PROJECT_DIR$/Raymond/raymondServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="62" column="39" lean-forward="true" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-                <marker date="1556974470379" expanded="true" signature="772:774" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Raymond/Server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="46" column="55" lean-forward="true" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+            <state relative-caret-position="260">
+              <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -118,20 +105,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="136" column="16" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
+            <state relative-caret-position="-1666">
+              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1557918819310" expanded="true" signature="779:781" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CNode.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-716" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/SKNode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-53">
-              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+            <state relative-caret-position="475">
+              <caret line="103" column="31" lean-forward="true" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1556970463900" expanded="true" signature="871:1096" ph="..." />
+                <marker date="1557913541701" expanded="true" signature="903:1134" ph="..." />
               </folding>
             </state>
           </provider>
@@ -140,7 +147,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Raymond/Storehouse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-151">
               <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
@@ -166,10 +173,10 @@
       <find>node =</find>
       <find>request_number_</find>
       <find>add_p</find>
-      <find>token</find>
       <find>add_node</find>
       <find>update_edge</find>
       <find>parent_node</find>
+      <find>token</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -195,11 +202,12 @@
         <option value="$PROJECT_DIR$/code/Server.py" />
         <option value="$PROJECT_DIR$/Raymond/Storehouse.py" />
         <option value="$PROJECT_DIR$/Raymond/raymondNode.py" />
-        <option value="$PROJECT_DIR$/Raymond/SKNode.py" />
         <option value="$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py" />
-        <option value="$PROJECT_DIR$/Raymond/Node.py" />
         <option value="$PROJECT_DIR$/Raymond/UI.py" />
+        <option value="$PROJECT_DIR$/Raymond/SKNode.py" />
         <option value="$PROJECT_DIR$/Raymond/Server.py" />
+        <option value="$PROJECT_DIR$/Raymond/raymondServer.py" />
+        <option value="$PROJECT_DIR$/Raymond/Node.py" />
       </list>
     </option>
   </component>
@@ -209,7 +217,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="835" />
@@ -299,6 +307,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -311,11 +320,15 @@
               <item name="DAPro" type="462c0819:PsiDirectoryNode" />
               <item name="Raymond" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DAPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DAPro" type="462c0819:PsiDirectoryNode" />
+              <item name="Suzuki_Kasami_Alg" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -333,13 +346,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Raymond" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Raymond" />
       <recent name="$PROJECT_DIR$/Logger" />
       <recent name="$PROJECT_DIR$/Logger/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Raymond" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -354,7 +368,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Log">
+  <component name="RunManager" selected="Python.Server">
     <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <additionalParameters>
         <param>
@@ -408,7 +422,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Node" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DAPro" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -416,11 +430,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/code" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Raymond" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code/Node.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Raymond/raymondServer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -472,19 +486,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Node" />
       <item itemvalue="Python.raymondNode" />
       <item itemvalue="Python.Node (1)" />
       <item itemvalue="Python.tkinter_version1" />
       <item itemvalue="Python.Log" />
+      <item itemvalue="Python.Server" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Server" />
         <item itemvalue="Python.Log" />
         <item itemvalue="Python.tkinter_version1" />
         <item itemvalue="Python.Node (1)" />
         <item itemvalue="Python.raymondNode" />
-        <item itemvalue="Python.Node" />
       </list>
     </recent_temporary>
   </component>
@@ -506,7 +520,7 @@
     <option name="totallyTimeSpent" value="1363000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
@@ -683,35 +697,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Raymond/Storehouse.py">
+    <entry file="file://$PROJECT_DIR$/CServer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Raymond/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        <state relative-caret-position="-1666">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Suzuki_Kasami_Alg/Log.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Raymond/SKNode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1556970463900" expanded="true" signature="871:1096" ph="..." />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Raymond/raymondNode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+        <state relative-caret-position="1440">
+          <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
           <folding>
             <marker date="1556955472711" expanded="true" signature="674:987" ph="..." />
             <marker date="1556955472711" expanded="true" signature="1913:1922" ph="..." />
@@ -720,30 +726,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Raymond/UI.py">
+    <entry file="file://$PROJECT_DIR$/Raymond/raymondServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="136" column="16" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="62" column="39" lean-forward="true" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+        <state relative-caret-position="260">
+          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1556974470379" expanded="true" signature="772:774" ph="..." />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Raymond/Server.py">
+    <entry file="file://$PROJECT_DIR$/Raymond/Storehouse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="46" column="55" lean-forward="true" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+        <state relative-caret-position="-151">
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Raymond/SKNode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="103" column="31" lean-forward="true" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1557913541701" expanded="true" signature="903:1134" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Raymond/Node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1557918819310" expanded="true" signature="779:781" ph="..." />
           </folding>
         </state>
       </provider>

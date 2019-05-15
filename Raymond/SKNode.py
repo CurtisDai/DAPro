@@ -5,7 +5,7 @@ import json
 
 class Node(object):
     def __init__(self, ip, port,cs_addr = None, cs=False):
-        self.addr = (ip,port)
+        self.addr = [ip,port]
         self.request_number= {}
         self.ID = None
         self.cs_addr = cs_addr
@@ -28,10 +28,11 @@ class Node(object):
             return self.update(data)
 
     def update(self,data):
+        print(data["net_info"])
         self.net_addr = data["net_info"]
-        self.ID = self.net_addr[self.addr]
-        for ID in self.net_addr.values():
-            self.request_number[ID] = self.request_number.get(ID,0)
+        self.ID = self.net_addr.index(self.addr)
+        for i in range(len(self.net_addr)):
+            self.request_number[i] = self.request_number.get(i,0)
         return None,None
 
     def initialize(self,data,addr):
@@ -91,6 +92,8 @@ class Node(object):
         print("entering CS")
         return msg, self.cs_addr
 
+
+
     def exitCS(self):
         self.cs = False
         print("exit CS")
@@ -106,8 +109,10 @@ class Node(object):
         return None,None
 
 
+
     def get_status(self):
         return {"have_token":self.token, "RN":self.request_number}
+
 
     def __repr__(self):
         return str(self.addr)
