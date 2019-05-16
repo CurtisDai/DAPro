@@ -2,15 +2,15 @@ import socket
 import threading
 import json
 import raymondNode
+import SKNode
 import time
-import sys
 
 host = socket.gethostname()
 myaddr = socket.gethostbyname(host)
 port = int(input('your port:'))
 # monitor_addr = input('logger ip address:')
 # monitor_port = int(input('logger port:'))
-monitor_addr = "10.12.161.119"
+monitor_addr = "10.13.184.50"
 monitor_port = 6000
 monitor = (monitor_addr,monitor_port)
 
@@ -20,7 +20,6 @@ s.bind((host, port))
 node = None
 # receiving
 
-cost = 0
 def msg_sending(msg,to_addr):
     msg = json.dumps(msg)
     s.sendto(msg.encode(), to_addr)
@@ -30,12 +29,10 @@ def msg_sending(msg,to_addr):
         s.sendto(pack.encode(), monitor)
 
 class listen(threading.Thread):
-
     def __init__(self):
         threading.Thread.__init__(self)
 
     def run(self):
-        global cost
         print('start listening\r\n')
         global node
         while True:
@@ -43,8 +40,10 @@ class listen(threading.Thread):
 
             data = json.loads(msg)
             if data['head'] == 'initialize':
-                node = raymondNode.Node(myaddr,port)
-
+                if data["algorithm"] == "raymond":
+                    node = raymondNode.Node(myaddr,port)
+                else:
+                    node = SKNode.Node(myaddr,port)
             if node:
                 output,to_addr = node.recieve_message(data,addr)
                 print(output,to_addr)
@@ -53,12 +52,7 @@ class listen(threading.Thread):
 
                 if output:
                     if output["head"] == "enter":
-                        cost = time.time() - cost
-                        print("entertime - request time",cost)
-                        cost = time.time()
                         time.sleep(2)
-                        cost = time.time() - cost
-                        print ("excuting time",cost)
                         msg, to_addr = node.exitCS()
                         if to_addr:
                             msg_sending(msg, to_addr)
@@ -69,7 +63,6 @@ class send(threading.Thread):
         threading.Thread.__init__(self)
 
     def run(self):
-        global cost
         msg = {"head":"login"}
         msg = json.dumps(msg)
         s.sendto(msg.encode(), monitor)  # send
@@ -78,14 +71,12 @@ class send(threading.Thread):
                 print("Do you wanna go to critical section? (y/n)")
                 letter = str(input())
                 if letter.lower() == "y":
-                    cost = time.time()
                     msg, to_addr = node.want_token()
                     if type(to_addr) is list:
                         for addr in to_addr:
                             msg_sending(msg, addr)
                     else:
                         msg_sending(msg, to_addr)
-                        
                 else:
                     print("sleep for a while")
             time.sleep(5)
