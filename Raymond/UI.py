@@ -83,7 +83,7 @@ class UI:
                 if x0 < x1:
 
                     line = self.canvas.create_line(x0+radius, y0+delta+10, x1-radius, y1-delta+10,arrow=tk.LAST,fill=color, width=2)
-                    text =  self.canvas.create_text(x0+radius,y0+delta+10, text=message, width=200,fill=color,anchor=tk.NW, angle =angle)
+                    text = self.canvas.create_text(x0+radius,y0+delta+10, text=message, width=200,fill=color,anchor=tk.NW, angle =angle)
 
                 else:
                     line = self.canvas.create_line(x0-radius, y0-delta-10, x1+radius, y1+delta-10,arrow=tk.LAST,fill=color, width=2)
